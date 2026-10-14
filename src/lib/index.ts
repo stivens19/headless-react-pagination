@@ -1,16 +1,17 @@
+// Hooks principales
 export { usePagination } from './hooks/usePagination';
+export { useUrlPagination } from './hooks/useUrlPagination';
+
+// Utilidades puras
+export { calculatePaginationTokens } from './utils/paginateRange';
+
+// Tipos e interfaces públicas
 export type {
     UsePaginationOptions,
     UsePaginationReturn,
+    UseUrlPaginationOptions,
     ButtonPropOverrides,
-} from './hooks/usePagination';
-
-export { useUrlPagination } from './hooks/useUrlPagination';
-export type { UseUrlPaginationOptions } from './hooks/useUrlPagination';
-
-export { calculatePaginationTokens } from './utils/paginateRange';
-export type {
     PaginationToken,
     PaginationItemType,
     RangeOptions,
-} from './utils/paginateRange';
+} from './types';

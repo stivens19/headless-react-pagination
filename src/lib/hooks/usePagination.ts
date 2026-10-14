@@ -1,46 +1,11 @@
 import React, { useMemo, useState, useCallback } from 'react';
-import {
-    calculatePaginationTokens,
+import { calculatePaginationTokens } from '../utils/paginateRange';
+import type {
+    UsePaginationOptions,
+    UsePaginationReturn,
     PaginationToken,
-} from '../utils/paginateRange';
-
-export interface UsePaginationOptions {
-    totalItems: number;
-    pageSize?: number;
-    initialPage?: number;
-    currentPage?: number;
-    siblingCount?: number;
-    boundaryCount?: number;
-    onChange?: (page: number) => void;
-}
-
-export interface ButtonPropOverrides extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
-
-export interface UsePaginationReturn {
-    currentPage: number;
-    totalPages: number;
-    pageSize: number;
-    totalItems: number;
-    hasPrevPage: boolean;
-    hasNextPage: boolean;
-    isFirstPage: boolean;
-    isLastPage: boolean;
-    tokens: PaginationToken[];
-    goToPage: (page: number) => void;
-    nextPage: () => void;
-    prevPage: () => void;
-    firstPage: () => void;
-    lastPage: () => void;
-    jumpPages: (offset: number) => void;
-
-    // Prop Getters
-    getContainerProps: (props?: React.HTMLAttributes<HTMLElement>) => React.HTMLAttributes<HTMLElement>;
-    getItemProps: (token: PaginationToken, overrides?: ButtonPropOverrides) => React.ButtonHTMLAttributes<HTMLButtonElement>;
-    getPrevProps: (overrides?: ButtonPropOverrides) => React.ButtonHTMLAttributes<HTMLButtonElement>;
-    getNextProps: (overrides?: ButtonPropOverrides) => React.ButtonHTMLAttributes<HTMLButtonElement>;
-    getFirstProps: (overrides?: ButtonPropOverrides) => React.ButtonHTMLAttributes<HTMLButtonElement>;
-    getLastProps: (overrides?: ButtonPropOverrides) => React.ButtonHTMLAttributes<HTMLButtonElement>;
-}
+    ButtonPropOverrides,
+} from '../types';
 
 export const usePagination = ({
     totalItems,
@@ -99,7 +64,6 @@ export const usePagination = ({
         [setPage, clampedPage]
     );
 
-    // Manejador unificado de atajos de teclado accesible
     const handleKeyDown = useCallback(
         (e: React.KeyboardEvent<HTMLElement>) => {
             if (e.key === 'ArrowRight') {

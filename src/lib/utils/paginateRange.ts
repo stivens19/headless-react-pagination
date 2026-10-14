@@ -1,19 +1,4 @@
-export type PaginationItemType = 'page' | 'dots' | 'prev' | 'next' | 'first' | 'last';
-
-export interface PaginationToken {
-    key: string;
-    type: PaginationItemType;
-    page: number | null;
-    isCurrent: boolean;
-    disabled: boolean;
-}
-
-export interface RangeOptions {
-    totalPages: number;
-    currentPage: number;
-    siblingCount?: number;
-    boundaryCount?: number;
-}
+import type { PaginationToken, RangeOptions } from '../types';
 
 const range = (start: number, end: number): number[] => {
     if (start > end) return [];
@@ -56,7 +41,7 @@ export const calculatePaginationTokens = ({
 
     const tokens: PaginationToken[] = [];
 
-    // Páginas iniciales fijas
+    // 1. Bloque inicial
     startPages.forEach((p) => {
         tokens.push({
             key: `page-${p}`,
@@ -67,7 +52,7 @@ export const calculatePaginationTokens = ({
         });
     });
 
-    // Zona intermedia izquierda
+    // 2. Zona elipsis o relleno izquierdo
     if (showLeftDots) {
         tokens.push({
             key: 'dots-left',
@@ -89,7 +74,7 @@ export const calculatePaginationTokens = ({
         });
     }
 
-    // Zona central de páginas activas y hermanas
+    // 3. Zona central
     const middlePages = range(
         showLeftDots ? leftSiblingIndex : boundaryCount + 1,
         showRightDots ? rightSiblingIndex : safeTotalPages - boundaryCount
@@ -107,7 +92,7 @@ export const calculatePaginationTokens = ({
         }
     });
 
-    // Zona intermedia derecha
+    // 4. Zona elipsis o relleno derecho
     if (showRightDots) {
         tokens.push({
             key: 'dots-right',
@@ -131,7 +116,7 @@ export const calculatePaginationTokens = ({
         });
     }
 
-    // Páginas finales fijas
+    // 5. Bloque final
     endPages.forEach((p) => {
         if (!tokens.some((t) => t.key === `page-${p}`)) {
             tokens.push({

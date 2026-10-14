@@ -1,4 +1,13 @@
 {
+  "author": "Stivens Rayli Espinoza Reina",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/headless-react-pagination.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/headless-react-pagination/issues"
+  },
+  "homepage": "https://github.com/tu-usuario/headless-react-pagination#readme",
   "name": "headless-react-pagination",
   "version": "0.1.0",
   "description": "Headless, accessible and lightweight pagination hooks for React.",
@@ -8,13 +17,15 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
   "keywords": [
     "react",
@@ -30,7 +41,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run test && npm run build",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -57,5 +68,6 @@
     "vite": "^8.3.0",
     "vite-plugin-dts": "^5.1.2",
     "vitest": "^5.0.4"
-  }
+  },
+  "sideEffects": false
 }

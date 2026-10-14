@@ -1,11 +1,6 @@
 import { useCallback, useState, useEffect } from 'react';
-import { usePagination, UsePaginationOptions, UsePaginationReturn } from './usePagination';
-
-export interface UseUrlPaginationOptions extends Omit<UsePaginationOptions, 'currentPage' | 'initialPage' | 'onChange'> {
-    pageParamName?: string;
-    historyMethod?: 'push' | 'replace';
-    onPageChange?: (page: number) => void;
-}
+import { usePagination } from './usePagination';
+import type { UseUrlPaginationOptions, UsePaginationReturn } from '../types';
 
 export const useUrlPagination = ({
     pageParamName = 'page',
