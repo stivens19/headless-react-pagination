@@ -2,12 +2,12 @@
   "author": "Stivens Rayli Espinoza Reina",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tu-usuario/headless-react-pagination.git"
+    "url": "https://github.com/stivens19/headless-react-pagination.git"
   },
   "bugs": {
-    "url": "https://github.com/tu-usuario/headless-react-pagination/issues"
+    "url": "https://github.com/stivens19/headless-react-pagination/issues"
   },
-  "homepage": "https://github.com/tu-usuario/headless-react-pagination#readme",
+  "homepage": "https://github.com/stivens19/headless-react-pagination#readme",
   "name": "headless-react-pagination",
   "version": "0.1.0",
   "description": "Headless, accessible and lightweight pagination hooks for React.",
