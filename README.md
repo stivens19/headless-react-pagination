@@ -1,8 +1,8 @@
 # headless-react-pagination
 
 [![npm version](https://img.shields.io/npm/v/headless-react-pagination.svg)](https://www.npmjs.com/package/headless-react-pagination)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/headless-react-pagination)](https://bundlephobia.com/package/headless-react-pagination)
-[![license](https://img.shields.io/npm/l/headless-react-pagination)](LICENSE)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/headless-react-pagination)](https://bundlephobia.com/package/headless-react-pagination)
+[![License: MIT](https://img.shields.io/npm/l/headless-react-pagination.svg)](https://github.com/stivens19/headless-react-pagination/blob/main/LICENSE)
 
 Colección de hooks para React **100% headless, accesibles (WAI-ARIA) y sin dependencias externas** diseñados para resolver la navegación de páginas en cualquier arquitectura frontend.
 
